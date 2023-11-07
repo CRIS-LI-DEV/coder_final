@@ -1,0 +1,63 @@
+export default [
+  {
+    nombre: "Pastel de Chocolate",
+    ingredientes: [
+      "harina",
+      "azúcar",
+      "chocolate",
+      "huevos",
+      "mantequilla",
+      "esencia de vainilla",
+    ],
+    pasos: [
+      "Precalienta el horno a 180 grados Celsius.",
+      "Mezcla la harina, el azúcar y el chocolate en un tazón grande.",
+      "Añade los huevos, la mantequilla derretida y la esencia de vainilla a la mezcla.",
+      "Vierte la mezcla en un molde previamente engrasado.",
+      "Hornea durante 30-35 minutos o hasta que al insertar un palillo, este salga limpio.",
+      "Deja enfriar antes de servir.",
+    ],
+  },
+  {
+    nombre: "Ensalada César",
+    ingredientes: [
+      "lechuga romana",
+      "crutones",
+      "queso parmesano",
+      "pechuga de pollo",
+      "aceite de oliva",
+      "salsa César",
+    ],
+    pasos: [
+      "Lava y corta la lechuga romana en trozos pequeños.",
+      "Cocina la pechuga de pollo y córtala en tiras.",
+      "Mezcla la lechuga, los crutones y el queso parmesano en un tazón grande.",
+      "Añade las tiras de pollo.",
+      "Rocía con aceite de oliva y la salsa César.",
+      "Mezcla bien y sirve inmediatamente.",
+    ],
+  },
+  {
+    nombre: "Sopa de Tomate",
+    ingredientes: [
+      "tomates",
+      "cebolla",
+      "ajo",
+      "caldo de pollo",
+      "albahaca fresca",
+      "aceite de oliva",
+      "sal",
+      "pimienta",
+    ],
+    pasos: [
+      "Calienta el aceite de oliva en una olla grande.",
+      "Añade la cebolla y el ajo, y saltea hasta que estén dorados.",
+      "Agrega los tomates y cocina por 5 minutos.",
+      "Vierte el caldo de pollo y deja hervir.",
+      "Añade la albahaca fresca, la sal y la pimienta.",
+      "Reduce el fuego y cocina a fuego lento durante 15-20 minutos.",
+      "Deja enfriar un poco y luego mezcla la sopa hasta que esté suave.",
+      "Sirve caliente.",
+    ],
+  },
+];
