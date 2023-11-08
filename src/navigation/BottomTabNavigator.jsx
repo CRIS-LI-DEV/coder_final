@@ -26,7 +26,7 @@ function BottomTabNavigator() {
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={focused ? styles.iconContainer : null}>
-              <Feather name="shopping-bag" size={24} color={colors.white} />
+              <Feather name="align-justify" size={24} color={colors.white} />
             </View>
           ),
         }}
@@ -37,7 +37,7 @@ function BottomTabNavigator() {
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={focused ? styles.iconContainer : null}>
-              <Feather name="shopping-cart" size={24} color={colors.white} />
+              <Feather name="edit" size={24} color={colors.white} />
             </View>
           ),
         }}
