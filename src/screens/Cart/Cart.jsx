@@ -18,7 +18,10 @@ const Cart = () => {
   const [nuevoPaso, setNuevoPaso] = useState("");
   const [ingredientes, setIngredientes] = useState([]);
   const [pasos, setPasos] = useState([]);
-
+const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [success, setSuccess] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
   const agregarIngrediente = () => {
     if (nuevoIngrediente !== "") {
       setIngredientes([...ingredientes, nuevoIngrediente]);
@@ -34,7 +37,13 @@ const Cart = () => {
   };
 
   const enviarReceta = () => {
-    
+
+     console.log("largo" + nombreReceta.length);
+    console.log("largo" + ingredientes.length);
+    console.log("largo" + pasos.length);
+   
+
+
     const receta = {
       nombre: nombreReceta,
       ingredientes: ingredientes,
@@ -43,20 +52,44 @@ const Cart = () => {
     };
      console.log("receta");
     console.log(receta)
-    postRecipe(receta)
-      .unwrap()
-      .then((data) => {
-        console.log("Receta agregada con éxito:", data);
-      })
-      .catch((error) => {
-        console.error("Error al agregar la receta:", error);
-      });
+    if (nombreReceta.length > 0 && ingredientes.length > 0 && pasos.length) {
+      postRecipe(receta)
+        .unwrap()
+        .then((data) => {
+          console.log("Receta agregada con éxito:", data);
+           setSuccessMessage("¡Receta agregada con éxito!");
+          setSuccess(true);
+           setError(false);
+           setTimeout(() => {
+             setSuccess(false);
+           }, 3000);
+        })
+        .catch((error) => {
+          console.error("Error al agregar la receta:", error);
+        });
+      
+      setNombreReceta('');
+      setIngredientes([]);
+      setPasos([]);
+      
+    } else {
+      console.log("Error", "Por favor ingresa un nombre para la receta.");
+         setErrorMessage("Faltan datos. Por favor complete todos los campos.");
+         setError(true);
+         return;
+     }
+
+
+    
   };
 
   return (
     <View style={styles.container}>
       <Header title={"Agrega tu receta"} />
+
       <View style={{ flex: 1, paddingHorizontal: 4 }}>
+        {success && <Text style={styles.successText}>{successMessage}</Text>}
+        {error && <Text style={styles.errorText}>{errorMessage}</Text>}
         <Text style={styles.label}>Nombre de la Receta:</Text>
         <TextInput
           style={[styles.recipeInput]}
@@ -181,7 +214,7 @@ const styles = StyleSheet.create({
     height: 40,
     borderWidth: 1,
     paddingLeft: 5,
-    color: "white",
+
   },
   container_enviarText: {
     marginTop: 10,
