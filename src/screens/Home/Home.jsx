@@ -46,12 +46,35 @@ const RenderItem = ({ item }) => {
           setModalVisible(false);
         }}
       >
-        <View style={styles.centeredView}>
+        <View style={[styles.centeredView, {}]}>
           <View style={styles.modalView}>
             <View style={styles.item}>
-              <Text style={styles.title}>{item.nombre}</Text>
-              <Text style={styles.subtitle}>Ingredientes:</Text>
-              <View style={styles.ingredientsContainer}>
+              <Text style={[styles.title, { fontSize: 30 }]}>
+                <Image
+                  source={require("../../../assets/comida.png")} // Ajusta la ruta de la imagen según la ubicación de tu archivo de imagen
+                  style={styles.image}
+                />{" "}
+                {item.nombre}
+              </Text>
+              <Text style={[styles.title, { fontSize: 20,marginBottom:10 }]}>
+                <Image
+                  source={require("../../../assets/cocinero.png")} // Ajusta la ruta de la imagen según la ubicación de tu archivo de imagen
+                  style={styles.image}
+                />{" "}
+                {item.usuario}
+              </Text>
+              <Text style={[styles.title, { fontSize: 15 }]}>
+                Ingredientes:
+              </Text>
+              <View
+                style={{
+                  borderRadius: 25,
+                  alignItems: "center",
+                  borderColor: "#F15D02",
+                  borderWidth: 3,
+                  backgroundColor: "white",
+                }}
+              >
                 {item.ingredientes.map((ingrediente, index) => (
                   <View style={styles.caja_text_ing}>
                     <Text style={styles.ingredient} key={index}>
@@ -60,9 +83,17 @@ const RenderItem = ({ item }) => {
                   </View>
                 ))}
               </View>
-              <Text style={styles.subtitle}>Pasos:</Text>
+              <Text style={[styles.title, { fontSize: 15 }]}>Pasos:</Text>
               <Text style={styles.step}>{"    "} </Text>
-              <View style={styles.stepsContainer}>
+              <View
+                style={{
+                  borderRadius: 25,
+                  alignItems: "center",
+                  borderColor: "#F15D02",
+                  borderWidth: 3,
+                  backgroundColor: "white",
+                }}
+              >
                 {item.pasos.map((paso, index) => (
                   <View style={styles.caja_text_ing}>
                     <Text style={styles.step} key={index}>
@@ -74,12 +105,32 @@ const RenderItem = ({ item }) => {
               </View>
             </View>
             {/* ... (otros detalles de la receta) */}
-            <Button
-              title="Cerrar"
+
+            <TouchableOpacity
               onPress={() => {
                 setModalVisible(!modalVisible);
               }}
-            />
+            >
+              <View
+                style={{
+                  backgroundColor: "white",
+                  borderRadius: 25,
+                  alignItems: "center",
+                  borderColor: "#F15D02",
+                  borderWidth: 3,
+                }}
+              >
+                <Text
+                  style={{
+                    fontSize: 25,
+                    color: "#F15D02",
+                    fontFamily: "Poppins",
+                  }}
+                >
+                  Cerrar
+                </Text>
+              </View>
+            </TouchableOpacity>
           </View>
         </View>
       </Modal>
@@ -179,7 +230,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   caja_text_ing: {
-    backgroundColor: "red",
+   
   },
   listContainer: {
     backgroundColor: "white",
